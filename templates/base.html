@@ -41,8 +41,13 @@
 <body>
     <header></header>
 
+    {% block content %}
+    {% endblock %}
+
     {% include 'includes/messages.html' %}
 
+    {% block postloadjs %}
+    {% endblock %}
 </body>
 
 </html>
