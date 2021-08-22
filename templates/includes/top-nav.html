@@ -1,0 +1,50 @@
+<div class="row bg-white d-none d-lg-flex mt-3">
+    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+        <a href="{% url 'home' %}" class="nav-link">
+            <h2 class="text-black text-uppercase">Bojeaux</h2>
+        </a>
+    </div>
+    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <form method="GET" action="#">
+            <div class="input-group border-black">
+                <input class="form-control" type="text" name="q">
+                <div class="input-group-append">
+                    <button class="form-control" type="submit">
+                        <i class="las la-2x la-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+            <li class="list-inline-item dropdown">
+                <a class="dropdown-toggle text-decoration-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span><i class="las la-2x la-user text-dark"></i></span>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item nav-link text-dark">Add Product</a>
+                        {% endif %}
+                        <a href="#" class="dropdown-item nav-link text-dark">My Account</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item nav-link text-dark">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item nav-link text-dark">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item nav-link text-dark">Login</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="nav-link text-dark">
+                    <i class="lar la-2x la-heart"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="nav-link text-dark">
+                    <i class="las la-2x la-shopping-bag"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
