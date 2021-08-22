@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="las la-2x la-bars"></i>
+    </button>
+    <a href="{% url 'home' %}" class="nav-link d-lg-none d-md-flex">
+        <h2 class="text-black text-uppercase">Bojeaux</h2>
+    </a>
+    <a href="#" class="nav-link text-dark d-lg-none d-xl-none">
+        <i class="las la-2x la-shopping-bag"></i>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active text-uppercase text-dark" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase text-dark" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase text-dark" href="#">Blog</a>
+            </li>
+            <li class="d-lg-none">
+                <ul class="navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-uppercase text-dark">Add Product</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a href="#" class="nav-link text-uppercase text-dark">My Account</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'account_logout' %}" class="nav-link text-uppercase text-dark">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'account_signup' %}" class="nav-link text-uppercase text-dark">Register</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'account_login' %}" class="nav-link text-uppercase text-dark">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="d-lg-none">
+                <form method="GET" action="#">
+                    <div class="input-group border-black">
+                        <input class="form-control" type="text" name="q">
+                        <div class="input-group-append">
+                            <button class="form-control" type="submit">
+                                <i class="las la-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
