@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -22,4 +23,42 @@ body {
     color: var(--color-black);
 }
 
-/* ---------------------------------------------  */
+.border-black {
+    border: 1px solid black !important;
+}
+
+.form-control {
+    border: 0px !important;
+}
+
+#navigation-section {
+    height: 100px;
+    width: 100%;
+}
+
+#dropdownMenuButton1::after {
+    color: var(--color-black);
+}
+
+#dropdownMenuButton1 {
+    cursor: pointer;
+}
+
+#main-nav {
+    margin-top: 100px;
+}
+
+#main-nav .nav-link {
+    padding-right: 50px;
+}
+
+#main-nav .nav-link:hover {
+    text-decoration: 2px underline;
+}
+/* --------------------------------------------- Media Queries */
+
+@media (max-width: 992px) {
+    #main-nav {
+        margin-top: 25px;
+    }
+}
