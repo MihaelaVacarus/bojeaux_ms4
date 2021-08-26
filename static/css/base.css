@@ -48,17 +48,37 @@ body {
     margin-top: 100px;
 }
 
-#main-nav .nav-link {
-    padding-right: 50px;
-}
-
 #main-nav .nav-link:hover {
     text-decoration: 2px underline;
+}
+
+/* --------------------------------------------- Home */
+
+#home-hero {
+    background: url('/media/home-hero.jpg') no-repeat center;
+    background-size: cover;
+    height: 600px;
+    margin-top: 80px;
+    color: var(--color-white);
+    letter-spacing: 2px;
 }
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
     #main-nav {
         margin-top: 25px;
+        background-color: var(--color-white);
+    }
+
+    #home-hero {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    #main-nav > div > nav > button,
+    #main-nav > div > nav > a.nav-link.d-lg-none.d-md-flex,
+    #main-nav > div > nav > a.nav-link.text-dark.d-lg-none.d-xl-none {
+        padding: 0px;
     }
 }
