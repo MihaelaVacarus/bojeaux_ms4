@@ -62,12 +62,20 @@ body {
     color: var(--color-white);
     letter-spacing: 2px;
 }
+
+#products-main {
+    padding-top: 100px;
+}
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
     #main-nav {
         margin-top: 25px;
         background-color: var(--color-white);
+    }
+
+    #products-main {
+        padding-top: 0px;
     }
 
     #home-hero {
