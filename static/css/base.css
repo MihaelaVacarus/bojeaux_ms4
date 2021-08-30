@@ -34,6 +34,7 @@ body {
 #navigation-section {
     height: 100px;
     width: 100%;
+    z-index: 1000;
 }
 
 #dropdownMenuButton1::after {
@@ -44,8 +45,14 @@ body {
     cursor: pointer;
 }
 
+#top-nav {
+    z-index: 1050;
+    background-color:var(--color-white);
+}
+
 #main-nav {
-    margin-top: 100px;
+    background-color: var(--color-white);
+    top: 75px;
 }
 
 #main-nav .nav-link:hover {
@@ -66,12 +73,17 @@ body {
 #products-main {
     padding-top: 100px;
 }
+
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
     #main-nav {
-        margin-top: 25px;
         background-color: var(--color-white);
+        top: 0px;
+    }
+
+    #navbarScroll > ul > li {
+        padding: 0px 15px 0px 15px;;
     }
 
     #products-main {
