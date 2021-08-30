@@ -1,15 +1,70 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}High quality hair and skincare{% endblock %}
+{% block extra_title %}High quality hair and skincare{% endblock %}
 
 {% block content %}
-    <div class="container" id="products-main">
-        <div class="row">
-            <div class="col">
-                {{ products }}
+    <div id="products-main"></div>
+    <div class="container-fluid" id="products-main-container">
+        <div class="container">
+            <div class="row mb-3">
+                <!--Breadcrumbs-->
+                <div class="col-sm-6 col-12">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                        <a href="{% url 'home' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
+                        <a href="{% url 'products' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
+                        <a href="#" class="breadcrumb-item active text-dark fw-bold text-uppercase text-decoration-none">category</a>
+                    </div>
+                </div>
+                <!--Dropdown sorting select products-->
+                <div class="col-sm-6 col-12 d-flex justify-content-md-end">
+                    <div class="dropdown-sort">
+                        <select name="" id="dropdown-select">
+                            <option value="">Sort by</option>
+                            <option value="">Price (low to high)</option>
+                            <option value="">Price (high to low)</option>
+                            <option value="">(A-Z)</option>
+                            <option value="">(Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!--Filters-->
+                <div class="col-12">
+                    <p class="text-uppercase">Filter by:</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-6 col-sm-12" id="filters-container">
+                            <a href="#" class="btn btn-outline-dark text-uppercase">Hair</a>
+                            <a href="#" class="btn btn-outline-dark text-uppercase">Body</a>
+                            <a href="#" class="btn btn-outline-dark text-uppercase">Face</a>
+                            <a href="#" class="btn btn-outline-dark text-uppercase">Bundles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Products-->
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
+                        <div class="card h-100 product-card border-0">
+                            {% if product.image %}
+                            <a href=""><img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}"></a>
+                            {% else %}
+                            <a href=""><img src="{{ MEDIA_URL }}no_image.png" class="card-img-top"
+                                    alt="{{ product.name }}"></a>
+                            {% endif %}
+                            <hr>
+                            <div class="card-body d-flex justify-content-between px-0 pt-0">
+                                <p class="fs-6 card-text text-uppercase">{{ product.name }}</p>
+                                <p class="card-text">${{ product.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-    {% include 'home/includes/bestsellers_section.html' %}
 {% endblock %}
