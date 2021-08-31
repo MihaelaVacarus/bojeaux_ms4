@@ -37,10 +37,10 @@
                     <p class="text-uppercase">Filter by:</p>
                     <div class="row mb-3">
                         <div class="col-lg-6 col-sm-12" id="filters-container">
-                            <a href="#" class="btn btn-outline-dark text-uppercase">Hair</a>
-                            <a href="#" class="btn btn-outline-dark text-uppercase">Body</a>
-                            <a href="#" class="btn btn-outline-dark text-uppercase">Face</a>
-                            <a href="#" class="btn btn-outline-dark text-uppercase">Bundles</a>
+                            <a href="{% url 'products' %}?category=hair" class="btn btn-outline-dark text-uppercase">Hair</a>
+                            <a href="{% url 'products' %}?category=body" class="btn btn-outline-dark text-uppercase">Body</a>
+                            <a href="{% url 'products' %}?category=face" class="btn btn-outline-dark text-uppercase">Face</a>
+                            <a href="{% url 'products' %}?category=bundles" class="btn btn-outline-dark text-uppercase">Bundles</a>
                         </div>
                     </div>
                 </div>
