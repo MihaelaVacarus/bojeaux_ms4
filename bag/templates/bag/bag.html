@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}High quality hair and skincare{% endblock %}
+
+{% block content %}
+    <div id="products-main"></div>
+    <div class="container-fluid" id="products-main-container">
+        <div class="container">
+            <div class="row mb-3">
+                <!--Breadcrumbs-->
+                <div class="col-sm-6 col-12">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                        <a href="{% url 'home' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
+                        <a href="{% url 'products' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
+                        <a href="#" class="breadcrumb-item active text-dark fw-bold text-uppercase text-decoration-none">category</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="text-uppercase">Your bag</h4>
+            <div class="row">
+                <div class="col-8">
+                    <p>Placeholder for delivery fee.</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% if bag_items %}
+                        <div></div>
+                    {% else %}
+                    <p>You haven't added any products yet!</p>
+                    <div class="py-4"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-forward">Shop Now <i
+                        class="las la-angle-right"></i></a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+{% endblock %}
+
