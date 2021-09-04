@@ -93,7 +93,8 @@ body {
 }
 
 /* --------------------------------------------- Bag */
-.update-link {
+.update-link,
+.remove-link {
     cursor: pointer;
 }
 
