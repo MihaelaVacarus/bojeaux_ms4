@@ -91,6 +91,12 @@ body {
     width: 45px;
     height: 45px;
 }
+
+/* --------------------------------------------- Bag */
+.update-link {
+    cursor: pointer;
+}
+
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
