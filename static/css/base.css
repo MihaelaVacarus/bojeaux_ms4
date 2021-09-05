@@ -21,6 +21,7 @@ html {
 body {
     font-family: var(--font-noto-sans-kr);
     color: var(--color-black);
+    min-height: 100vh;
 }
 
 .border-black {
@@ -87,6 +88,18 @@ body {
     height: 150px;
 }
 
+/* --------------------------------------------- Footer */
+footer {
+    background-color: var(--color-grey);
+    min-height: 150px;
+}
+
+#footer-content {
+    top: 75px;
+    transform:translateY(-50%);
+    position: relative;
+}
+
 /* --------------------------------------------- Products */
 .dropdown-sort {
     border: 1px solid var(--color-black);
@@ -134,6 +147,16 @@ body {
 
     #home-hero {
         margin-top: 0px;
+    }
+
+    #footer-content {
+        top: 0;
+        transform: none;
+    }
+
+    #footer-content > div.col-lg-4.col-sm-12 > h1,
+    #footer-content > div.col-lg-4.col-sm-12 > a {
+        margin-left: 0 !important;
     }
 }
 
