@@ -3,7 +3,41 @@
         <strong class="me-auto text-uppercase text-success">Success</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
-        {{ message }}
+    <div class="toast-body bg-white">
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+        {% if grand_total %}
+            <p class="text-uppercase fw-bold">Bag ({{ product_count }})</p>
+            <div class="bag-notification-container mb-3">
+                {% for item in bag_items %}
+                    <div class="row my-2">
+                        <div class="col-6 my-1">
+                            {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="w-100">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="w-100">
+                            {% endif %}
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-6 text-uppercase fw-bold">{{ item.product.name }}</p>
+                            <p class="text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col text-uppercase fw-bold bg-light">
+                    <p>Total {% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:<span class="float-end"> ${{ total|floatformat:2 }}</span></p>
+                    {% if free_delivery_delta > 0 %}
+                        <p class="fw-normal text-muted">Spend an extra <strong>${{ free_delivery_delta }}</strong> and get free delivery!</p> 
+                    {% endif %}
+                    <a href="{% url 'view_bag' %}" class="btn w-100 btn-dark text-decoration-none"><i class="las la-lock"></i> Secure Checkout</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>
