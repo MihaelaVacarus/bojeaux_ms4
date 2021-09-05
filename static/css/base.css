@@ -69,6 +69,18 @@ body {
     letter-spacing: 2px;
 }
 
+/* --------------------------------------------- Toasts */
+.message-container {
+    position: fixed;
+    z-index: 9999999999;
+    top: 72px;
+    right: 15px;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
 /* --------------------------------------------- Products */
 .dropdown-sort {
     border: 1px solid var(--color-black);
