@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_title %}Checkout{% endblock %}
+
+{% block content %}
+    <div id="products-main"></div>
+    <div class="container-fluid" id="products-main-container">
+        <div class="container">
+            <div class="row mb-3">
+                <!--Breadcrumbs-->
+                <div class="col-sm-6 col-12">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                        <a href="{% url 'home' %}"
+                            class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
+                        <a href="{% url 'products' %}"
+                            class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
+                        <a href="#"
+                            class="breadcrumb-item active text-dark fw-bold text-uppercase text-decoration-none">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p>Already have an account? <a href="{% url 'account_login' %}"
+                    class="text-decoration-none text-dark text-decoration-underline">Log In</a>
+            </p>
+            <!--Order summary-->
+            <div class="row">
+                <div class="col-lg-6 col-12 order-lg-last">
+                    <p class="card-title text-uppercase">Summary ({{ product_count }})</p>
+                    {% for item in bag_items %}
+                    <div class="row my-3">
+                        <div class="col-4">
+                            {% if item.product.image %}
+                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-4">
+                            <p class="text-uppercase fw-bold">{{ item.product.name }}</p>
+                            <p>Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-4">
+                            <p>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 float-end">
+                            {% if delivery %}
+                                <p class="text-uppercase shipping-text mb-0">Subtotal: ${{ total | floatformat:2 }} </p>
+                                <p class="text-muted text-uppercase shipping-text mb-0">Shipping costs: ${{ delivery | floatformat:2 }}</p>
+                            {% endif %}
+                            <p class="text-uppercase fw-bold">Total: ${{ grand_total | floatformat:2 }}</p>
+                        </div> 
+                    </div>
+                </div>
+                <!--Checkout details-->
+                <div class="col-lg-6 col-12">
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset class="rounded mb-4 text-uppercase">
+                            <legend class="fs-6">Contact Information</legend>
+                            {{ order_form.email | as_crispy_field }}
+                            {{ order_form.full_name | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded mb-4 text-uppercase">
+                            <legend class="fs-6">Shipping Details</legend>
+                            {{ order_form.street_address1 | as_crispy_field }}
+                            {{ order_form.street_address2 | as_crispy_field }}
+                            {{ order_form.town_or_city | as_crispy_field }}
+                            {{ order_form.county | as_crispy_field }}
+                            {{ order_form.postcode | as_crispy_field }}
+                            {{ order_form.country | as_crispy_field }}
+                            {{ order_form.phone_number | as_crispy_field }}
+                            <div class="form-check form-check-inline my-3">
+                                {% if user.is_authenticated %}
+                                    <label class="form-check-label fs-6" for="id-save-info">Save shipping details</label>
+                                    <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                                {% else %}
+                                    <label class="form-check-label" for="id-save-info">
+                                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                        <a class="text-info" href="{% url 'account_login' %}">log in</a> to save this information
+                                    </label>
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                        <fieldset class="rounded mb-4 text-uppercase">
+                            <legend class="fs-6">Payment Details</legend>
+                            <div id="card-element"></div>
+                            <div class="text-danger" id="card-errors" role="alert"></div>
+                        </fieldset>
+                        <div class="my-5">
+                            <a href="{% url 'view_bag' %}" class="btn btn-lg btn-outline-dark text-uppercase my-5">Adjust bag</a>
+                            <button id="submit-button" class="btn btn-lg btn-dark text-uppercase my-5 ms-4">Pay Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
