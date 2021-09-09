@@ -28,8 +28,112 @@
                     <p>Thank you for your order! A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col"></div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h5 class="fw-3 mb-3">Order information</h5>
+                    <p>Reference Number: {{ order.order_number }}</p>
+                    <p>Order placed on: {{ order.date }}</p>
+                    <div class="row my-3">
+                        <div class="col-7">
+                            <hr>
+                        </div>
+                    </div>
+                    <p>Shipping details:</p>
+                    <div class="row">
+                        <div class="col-5">
+                            Full Name
+                        </div>
+                        <div class="col-5">
+                            {{ order.full_name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Street address 1
+                        </div>
+                        <div class="col-5">
+                            {{ order.street_address1 }}
+                        </div>
+                    </div>
+                    {% if order.street_address2 %}
+                        <div class="row">
+                            <div class="col-5">
+                                Street address 2
+                            </div>
+                            <div class="col-5">
+                                {{ order.street_address2 }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if order.county %}
+                        <div class="row">
+                            <div class="col-5">
+                                County
+                            </div>
+                            <div class="col-5">
+                                {{ order.county }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-5">
+                            Town/City
+                        </div>
+                        <div class="col-5">
+                            {{ order.town_or_city }}
+                        </div>
+                    </div>
+                    {% if order.postcode %}
+                        <div class="row">
+                            <div class="col-5">
+                                Postal Code
+                            </div>
+                            <div class="col-5">
+                                {{ order.postcode }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-5">
+                            Country
+                        </div>
+                        <div class="col-5">
+                            {{ order.country }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            Phone Number
+                        </div>
+                        <div class="col-5">
+                            {{ order.phone_number }}
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-7">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <h5 class="fw-3 mb-3">Order details</h5>
+                    {% for item in order.lineitems.all %}
+                        <div class="row">
+                            <div class="col-12">
+                                <p>{{ item.product.name }} {{ item.quantity }} @ ${{ item.product.price }} each</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-12 col text-uppercase fw-bold">
+                    <p>Total: ${{ order.grand_total|floatformat:2 }}</p>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="py-4"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+                    <i class="las la-angle-left"></i>Back to shopping </a>
+                </div>
             </div>
         </div>
     </div>
