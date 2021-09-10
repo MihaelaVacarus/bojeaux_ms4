@@ -30,6 +30,7 @@ body {
 
 .form-control {
     border: 0px !important;
+    appearance: auto;
 }
 
 #navigation-section {
@@ -189,6 +190,16 @@ footer {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+select,
+select option {
+    color: var(--color-black);
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
 
 /* --------------------------------------------- Media Queries */
