@@ -60,6 +60,23 @@ body {
 #main-nav .nav-link:hover {
     text-decoration: 2px underline;
 }
+
+/* --------------------------------------------- Allauth templates */
+#allauth-form > div:nth-child(4) {
+    border: 0px;
+}
+
+label[for="id_login"],
+[for="id_password"],
+[for="id_email"],
+[for="id_email2"],
+[for="id_username"],
+[for="id_password1"],
+[for="id_password2"],
+[for="id_oldpassword"] {
+    display: none;
+}
+
 /* --------------------------------------------- Home */
 
 #home-hero {
