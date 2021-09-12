@@ -25,7 +25,7 @@
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-uppercase text-dark">Add Product</a>
+                                <a href="{% url 'add_product' %}" class="nav-link text-uppercase text-dark">Add Product</a>
                             </li>
                         {% endif %}
                         <li>

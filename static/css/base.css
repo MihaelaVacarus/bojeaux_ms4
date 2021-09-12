@@ -141,6 +141,18 @@ footer {
     height: 45px;
 }
 
+/* --------------------------------------------- Products management */
+label[for="id_login"],
+[for="id_category"],
+[for="id_sku"],
+[for="id_name"],
+[for="id_description"],
+[for="id_ingredients"],
+[for="id_price"],
+[for="id_image"] {
+    display: none;
+}
+
 /* --------------------------------------------- Bag */
 .update-link,
 .remove-link {
