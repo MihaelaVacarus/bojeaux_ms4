@@ -219,6 +219,24 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
+/* --------------------------------------------- Profile information form */
+#profile-update-form .form-control {
+    color: var(--color-black);
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4 !important;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: var(--color-black);
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
