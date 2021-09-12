@@ -130,10 +130,16 @@
                     <p>Total: ${{ order.grand_total|floatformat:2 }}</p>
                 </div>
             </div>
-            <div class="row my-5">
-                <div class="py-4"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+            <div class="row mb-5 mt-3">
+                {% if from_profile %}
+                    <div class="pb-4 pt-2"><a href="{% url 'profile' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+                        <i class="las la-angle-left"></i>Back to profile </a>
+                    </div>
+                {% else %}
+                <div class="pb-4 pt-2"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
                     <i class="las la-angle-left"></i>Back to shopping </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

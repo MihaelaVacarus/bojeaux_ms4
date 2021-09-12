@@ -237,6 +237,11 @@ select option[value=""] {
     color: #aab7c4;
 }
 
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
 /* --------------------------------------------- Media Queries */
 
 @media (max-width: 992px) {
@@ -265,6 +270,10 @@ select option[value=""] {
     #footer-content > div.col-lg-4.col-sm-12 > h1,
     #footer-content > div.col-lg-4.col-sm-12 > a {
         margin-left: 0 !important;
+    }
+
+    .order-history table {
+        font-size: 0.7rem;
     }
 }
 
