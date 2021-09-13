@@ -39,7 +39,11 @@
                 {% for item in bag_items %}
                     <div class="row my-3">
                         <div class="col-lg-4 col-12 mb-3">
-                            <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                            {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="img-fluid">
+                            {% endif %}
                         </div>
                         <div class="col-lg-4 col-12 mb-3">
                             <p class="fs-6 card-text text-uppercase fw-bold">{{ item.product.name }}<span
