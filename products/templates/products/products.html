@@ -61,6 +61,12 @@
                                 <p class="fs-6 card-text text-uppercase">{{ product.name }}</p>
                                 <p class="card-text">${{ product.price }}</p>
                             </div>
+                            {% if request.user.is_superuser %}
+                            <div>
+                                <a href="{% url 'edit_product' product.id %}"><i class="las la-2x la-edit"></i></a>
+                                <a href="{% url 'delete_product' product.id %}" class="text-danger"><i class="las la-2x la-trash-alt"></i></a>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
