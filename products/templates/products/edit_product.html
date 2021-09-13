@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Add Product{% endblock %}
+
+{% block content %}
+    <div id="products-main"></div>
+    <div class="container-fluid" id="products-main-container">
+        <div class="container">
+            <div class="row mb-3">
+                <!--Breadcrumbs-->
+                <div class="col-sm-6 col-12">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                        <a href="{% url 'home' %}"
+                            class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
+                        <a href="{% url 'products' %}"
+                            class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
+                        <a href="#"
+                            class="breadcrumb-item active text-dark fw-bold text-uppercase text-decoration-none">Product Management</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="text-uppercase fw-bold">Edit product</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <form method="POST" action="{% url 'edit_product' product.id %}" class="mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div>
+                            <a href="{% url 'products' %}" class="btn btn-outline-dark text-uppercase my-4">Cancel</a>
+                            <button type="submit" class="btn btn-dark text-uppercase my-4 ms-4">Update Product</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
