@@ -83,12 +83,15 @@
                     <p class="text-uppercase fw-bold fs-5 my-0">Total: ${{ grand_total|floatformat:2 }}</p>
                     <p class="text-uppercase text-muted">Delivery: ${{ delivery|floatformat:2 }} </p>
                 </div>
+                <div class="mt-2 mb-5">
+                    <a href="{% url 'checkout' %}" class="btn btn-lg btn-dark text-decoration-none text-uppercase"><i class="las la-lock"></i> Secure Checkout</a>
+                </div>
             {% else %}
                 <p>You haven't added any products yet!</p>
+                <div class="pb-4 pt-2"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+                    <i class="las la-angle-left"></i>Back to shopping </a>
+                </div>
             {% endif %}
-            <div class="my-2"><a href="{% url 'checkout' %}"
-                    class="btn btn-lg btn-outline-dark text-decoration-none text-uppercase">Secure Checkout</a>
-            </div>
         </div>
     </div>
 {% endblock %}
