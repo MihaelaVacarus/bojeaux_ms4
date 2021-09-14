@@ -81,7 +81,11 @@
                 {% endfor %}
                 <div class="row py-3">
                     <p class="text-uppercase fw-bold fs-5 my-0">Total: ${{ grand_total|floatformat:2 }}</p>
-                    <p class="text-uppercase text-muted">Delivery: ${{ delivery|floatformat:2 }} </p>
+                    {% if delivery == 0 %}
+                        <p>You get FREE delivery for this order!</p>
+                    {% else %}
+                        <p class="text-uppercase text-muted">Delivery: ${{ delivery|floatformat:2 }} </p>
+                    {% endif %}
                 </div>
                 <div class="mt-2 mb-5">
                     <a href="{% url 'checkout' %}" class="btn btn-lg btn-dark text-decoration-none text-uppercase"><i class="las la-lock"></i> Secure Checkout</a>
