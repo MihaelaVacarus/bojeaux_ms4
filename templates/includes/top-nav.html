@@ -43,6 +43,9 @@
             <li class="list-inline-item">
                 <a href="{% url 'view_bag' %}" class="nav-link text-dark">
                     <i class="las la-2x la-shopping-bag"></i>
+                    {% if product_count > 0 %}
+                        ({{ product_count }})
+                    {% endif %}
                 </a>
             </li>
         </ul>
