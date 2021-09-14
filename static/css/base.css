@@ -141,6 +141,12 @@ footer {
     height: 45px;
 }
 
+.deletion-button {
+    background-color: transparent;
+    color: red;
+    border: none;
+}
+
 /* --------------------------------------------- Products management */
 label[for="id_login"],
 [for="id_category"],
