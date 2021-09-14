@@ -6,100 +6,111 @@
 {% block content %}
     <div id="products-main"></div>
     <div class="container-fluid" id="products-main-container">
-        <div class="container">
-            <div class="row mb-3">
-                <!--Breadcrumbs-->
-                <div class="col-sm-6 col-12">
-                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
-                        <a href="{% url 'home' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
-                        <a href="{% url 'products' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
-                        {% if current_categories %}
-                            {% for category in current_categories %}
-                                <p class="breadcrumb-item active text-dark fw-bold text-uppercase">{{ category }} ({{ products|length}})</p>
-                            {% endfor %}
-                        {% elif search_term %}
-                            <p class="breadcrumb-item active text-dark fw-bold text-uppercase"> Results for "{{ search_term|truncatechars:20 }}" ({{ products|length}})</p>
-                        {% else %}
-                            <p class="breadcrumb-item active text-dark fw-bold text-uppercase">All products ({{ products|length}})</p>
-                        {% endif %}
-                    </div>
-                </div>
-                <!--Dropdown sorting select products-->
-                <div class="col-sm-6 col-12 d-flex justify-content-md-end">
-                    <div class="dropdown-sort">
-                        <select name="" id="dropdown-select">
-                            <option value="reset" disabled {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>(A-Z)</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>(Z-A)</option>
-                        </select>
-                    </div>
-                </div>
+        {% if products|length == 0 and search_term %}
+            <div class="px-5 pt-4 pb-4 d-flex justify-content-center">
+                <p>Oh no! Nothing matches your search for <strong>"{{ search_term }}"</strong>. But don't give up -
+                    check the spelling or try less specific search terms.</p>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <!--Filters-->
-                <div class="col-12">
-                    <p class="text-uppercase">Filter by:</p>
-                    <div class="row mb-3">
-                        <div class="col-lg-6 col-sm-12" id="filters-container">
-                            <a href="{% url 'products' %}?category=hair" class="btn btn-outline-dark text-uppercase">Hair</a>
-                            <a href="{% url 'products' %}?category=body" class="btn btn-outline-dark text-uppercase">Body</a>
-                            <a href="{% url 'products' %}?category=face" class="btn btn-outline-dark text-uppercase">Face</a>
-                            <a href="{% url 'products' %}?category=bundles" class="btn btn-outline-dark text-uppercase">Bundles</a>
+            <div class="pb-4 d-flex justify-content-center"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+                <i class="las la-angle-left"></i>Back to shopping </a>
+            </div>
+        {% else %}
+            <div class="container">
+                <div class="row mb-3">
+                    <!--Breadcrumbs-->
+                    <div class="col-sm-6 col-12">
+                        <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                            <a href="{% url 'home' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
+                            <a href="{% url 'products' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
+                            {% if current_categories %}
+                                {% for category in current_categories %}
+                                    <p class="breadcrumb-item active text-dark fw-bold text-uppercase">{{ category }} ({{ products|length}})</p>
+                                {% endfor %}
+                            {% elif search_term %}
+                                <p class="breadcrumb-item active text-dark fw-bold text-uppercase"> Results for "{{ search_term|truncatechars:20 }}" ({{ products|length}})</p>
+                            {% else %}
+                                <p class="breadcrumb-item active text-dark fw-bold text-uppercase">All products ({{ products|length}})</p>
+                            {% endif %}
+                        </div>
+                    </div>            
+
+                    <!--Dropdown sorting select products-->
+                    <div class="col-sm-6 col-12 d-flex justify-content-md-end">
+                        <div class="dropdown-sort">
+                            <select name="" id="dropdown-select">
+                                <option value="reset" disabled {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>(A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>(Z-A)</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Products-->
-            <div class="row">
-                {% for product in products %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
-                        <div class="card h-100 product-card border-0">
-                            {% if product.image %}
-                            <a href="{% url 'product_detail' product.id %}"><img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}"></a>
-                            {% else %}
-                            <a href="{% url 'product_detail' product.id %}"><img src="{{ MEDIA_URL }}no_image.png" class="card-img-top"
-                                    alt="{{ product.name }}"></a>
-                            {% endif %}
-                            <hr>
-                            <div class="card-body d-flex justify-content-between px-0 pt-0">
-                                <p class="fs-6 card-text text-uppercase">{{ product.name }}</p>
-                                <p class="card-text">${{ product.price }}</p>
+            <div class="container">
+                <div class="row">
+                    <!--Filters-->
+                    <div class="col-12">
+                        <p class="text-uppercase">Filter by:</p>
+                        <div class="row mb-3">
+                            <div class="col-lg-6 col-sm-12" id="filters-container">
+                                <a href="{% url 'products' %}?category=hair" class="btn btn-outline-dark text-uppercase">Hair</a>
+                                <a href="{% url 'products' %}?category=body" class="btn btn-outline-dark text-uppercase">Body</a>
+                                <a href="{% url 'products' %}?category=face" class="btn btn-outline-dark text-uppercase">Face</a>
+                                <a href="{% url 'products' %}?category=bundles" class="btn btn-outline-dark text-uppercase">Bundles</a>
                             </div>
-                            {% if request.user.is_superuser %}
-                            <div>
-                                <a href="{% url 'edit_product' product.id %}"><i class="las la-2x la-edit"></i></a>
-                                <!-- Deletion button and modal -->
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#DeletionModal{{ product.id }}" class="deletion-button">
-                                    <i class="las la-2x la-trash-alt"></i>
-                                </button>
-                                <div class="modal fade" id="DeletionModal{{ product.id }}" tabindex="-1" aria-labelledby="DeletionModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-uppercase" id="DeletionModalLabel">Delete {{ product.name }}</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Are you sure you want to delete this product?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <a href="{% url 'delete_product' product.id %}" class="btn btn-danger text-decoration-none">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Products-->
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 my-3">
+                            <div class="card h-100 product-card border-0">
+                                {% if product.image %}
+                                <a href="{% url 'product_detail' product.id %}"><img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}"></a>
+                                {% else %}
+                                <a href="{% url 'product_detail' product.id %}"><img src="{{ MEDIA_URL }}no_image.png" class="card-img-top"
+                                        alt="{{ product.name }}"></a>
+                                {% endif %}
+                                <hr>
+                                <div class="card-body d-flex justify-content-between px-0 pt-0">
+                                    <p class="fs-6 card-text text-uppercase">{{ product.name }}</p>
+                                    <p class="card-text">${{ product.price }}</p>
+                                </div>
+                                {% if request.user.is_superuser %}
+                                <div>
+                                    <a href="{% url 'edit_product' product.id %}"><i class="las la-2x la-edit"></i></a>
+                                    <!-- Deletion button and modal -->
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#DeletionModal{{ product.id }}" class="deletion-button">
+                                        <i class="las la-2x la-trash-alt"></i>
+                                    </button>
+                                    <div class="modal fade" id="DeletionModal{{ product.id }}" tabindex="-1" aria-labelledby="DeletionModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-uppercase" id="DeletionModalLabel">Delete {{ product.name }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure you want to delete this product?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger text-decoration-none">Delete</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
     <!--Scroll back to top button-->
     <div class="btn btn-dark scroll-up fs-5">
