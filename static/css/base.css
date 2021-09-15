@@ -321,6 +321,10 @@ select option[value=""] {
         height: fit-content;
     }
 
+    #tou-container {
+        margin-top: 100px;
+    }
+
 }
 
 @media (max-width: 360px) {

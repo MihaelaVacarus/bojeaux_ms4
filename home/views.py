@@ -10,3 +10,9 @@ def about(request):
     """ A view to return the about page """
 
     return render(request, 'home/about.html')
+
+
+def terms_of_use(request):
+    """ A view to return the terms of use page """
+
+    return render(request, 'home/terms_of_use.html')
