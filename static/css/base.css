@@ -83,7 +83,7 @@ label[for="id_login"],
     background: url('/media/home-hero.jpg') no-repeat center;
     background-size: cover;
     height: 600px;
-    margin-top: 80px;
+    padding-top: 80px;
     color: var(--color-white);
     letter-spacing: 2px;
 }
@@ -291,10 +291,6 @@ select option[value=""] {
         padding: 0px 15px 0px 15px;;
     }
 
-    #products-main {
-        padding-top: 0px;
-    }
-
     #home-hero {
         margin-top: 0px;
     }
@@ -312,6 +308,11 @@ select option[value=""] {
     .order-history table {
         font-size: 0.7rem;
     }
+
+    #navigation-section {
+        height: fit-content;
+    }
+
 }
 
 @media (max-width: 360px) {
