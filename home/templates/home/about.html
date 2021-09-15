@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}About{% endblock %}
+
+{% block content %}
+    <div class="container" id="about-container"></div>
+    <div class="container">
+        <h4 class="text-uppercase fw-bold mt-5 mb-4">About</h4>
+        <p>Fusce sem libero, maximus vel aliquet vitae, imperdiet eu sapien. Integer convallis lectus non ipsum
+            faucibus, at consequat ante sodales. Quisque placerat odio eu urna ultrices, vitae tristique purus varius.
+            Maecenas arcu mauris, laoreet vel mollis ut, facilisis a metus. Proin semper, turpis sed pretium tristique,
+            arcu magna luctus mi, a tincidunt lacus ipsum non libero. Maecenas placerat purus id nunc varius, vel
+            convallis nulla malesuada. Curabitur cursus dui nec lobortis luctus. Nullam nisl enim, commodo in massa eu,
+            sodales convallis turpis. Phasellus a dui iaculis dui tempus rhoncus.</p>
+    </div>
+    <div class="container">
+        <h4 class="text-uppercase fw-bold mt-5 mb-4">Our founders</h4>
+        <div class="row my-2">
+            <div class="col-lg-4 col-12 my-3">
+                <img src="{{ MEDIA_URL }}founder_one.jpg" alt="Two women in a meeting" class="img-fluid">
+            </div>
+            <div class="col-lg-8 col-12 my-3">
+                <p>Vivamus eget nisi in leo fermentum malesuada. Sed malesuada, nunc eu congue facilisis, ligula lacus
+                    sagittis tellus, eu sagittis sem enim at tellus. Fusce eget urna a nibh semper elementum non dictum
+                    nibh. Suspendisse potenti. Curabitur pharetra suscipit sapien, ac pulvinar eros sagittis id.
+                    Praesent cursus semper massa, non auctor odio tempus vel. Aenean augue dui, consequat sit amet lorem
+                    tincidunt, laoreet viverra leo. In augue turpis, ultrices quis arcu id, pulvinar bibendum magna.</p>
+            </div>
+        </div>
+        <div class="row mt-2 mb-5">
+            <div class="col-lg-8 col-12 my-3">
+                <p>Vivamus eget nisi in leo fermentum malesuada. Sed malesuada, nunc eu congue facilisis, ligula lacus
+                    sagittis tellus, eu sagittis sem enim at tellus. Fusce eget urna a nibh semper elementum non dictum
+                    nibh. Suspendisse potenti. Curabitur pharetra suscipit sapien, ac pulvinar eros sagittis id.
+                    Praesent cursus semper massa, non auctor odio tempus vel. Aenean augue dui, consequat sit amet lorem
+                    tincidunt, laoreet viverra leo. In augue turpis, ultrices quis arcu id, pulvinar bibendum magna.</p>
+            </div>
+            <div class="col-lg-4 col-12 my-3">
+                <img src="{{ MEDIA_URL }}founder_two.jpg" alt="Two women in a meeting" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

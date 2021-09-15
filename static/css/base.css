@@ -88,6 +88,14 @@ label[for="id_login"],
     letter-spacing: 2px;
 }
 
+/* --------------------------------------------- About */
+
+#about-container {
+    background: url('/media/about-hero.jpg') no-repeat center;
+    background-size: cover;
+    height: 600px;
+}
+
 /* --------------------------------------------- Toasts */
 .message-container {
     position: fixed;
