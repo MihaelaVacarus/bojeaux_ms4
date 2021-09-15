@@ -96,6 +96,11 @@ label[for="id_login"],
     height: 600px;
 }
 
+/* --------------------------------------------- Privacy Policy */
+#ui-list {
+    list-style: none;
+}
+
 /* --------------------------------------------- Toasts */
 .message-container {
     position: fixed;
@@ -321,7 +326,7 @@ select option[value=""] {
         height: fit-content;
     }
 
-    #tou-container {
+    .legal-container {
         margin-top: 100px;
     }
 
