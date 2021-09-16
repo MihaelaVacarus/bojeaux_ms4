@@ -88,6 +88,10 @@ label[for="id_login"],
     letter-spacing: 2px;
 }
 
+.bg-grey {
+    background-color: var(--color-grey);
+}
+
 /* --------------------------------------------- About */
 
 #about-container {

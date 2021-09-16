@@ -12,5 +12,36 @@
             </div>
         </div>
     </div>
-    {% include 'home/includes/bestsellers_section.html' %}
+    <!--Bestsellers section-->
+    <div class="container-fluid">
+        <div class="row bg-grey p-5">
+            <h3 class="text-uppercase pb-5 pt-2 text-center">Our bestsellers</h3>
+            <div class="col-md-4 col-12 mb-5">
+                <a href="{% url 'product_detail' 22 %}" class="text-decoration-none text-dark">
+                    <div>
+                        <img src="{{ MEDIA_URL }}face_serum_elixir.jpg" alt="Face serum elixir" class="img-thumbnail" height="300px" width="auto">
+                    </div>
+                    <h6 class="text-uppercase py-3 text-center">Face Serum Elixir</h6>
+                </a>
+            </div>
+            <div class="col-md-4 col-12 mb-5">
+                <a href="{% url 'product_detail' 28 %}" class="text-decoration-none text-dark">
+                    <div>
+                        <img src="{{ MEDIA_URL }}bundle_bath_salts.jpg" alt="Bundle bath salts" class="img-thumbnail" height="300px" width="auto">
+                    </div>
+                    <h6 class="text-uppercase py-3 text-center">Bundle Bath Salts</h6>
+                </a>
+            </div>
+            <div class="col-md-4 col-12 mb-5">
+                <a href="{% url 'product_detail' 14 %}" class="text-decoration-none text-dark">
+                    <div>
+                        <img src="{{ MEDIA_URL }}hair_solid_conditioner.jpg" alt="Hair solid conditioner" class="img-thumbnail" height="300px" width="auto">
+                    </div>
+                    <h6 class="text-uppercase py-3 text-center">Hair Solid Conditioner</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
 {% endblock %}
