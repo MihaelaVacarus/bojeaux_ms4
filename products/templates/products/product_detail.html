@@ -5,7 +5,7 @@
 
 {% block content %}
     <div id="products-main"></div>
-    <div class="container-fluid" id="products-main-container">
+    <div class="container-fluid px-0" id="products-main-container">
         <div class="container">
             <div class="row mb-3">
                 <!--Breadcrumbs-->
@@ -117,6 +117,15 @@
                 </div>
             </div>
         </div>
+        {% if product.category %}
+            <div class="container my-5">
+                <p class="fs-5 my-5">
+                    You might also like other products from this <a
+                        href="{% url 'products' %}?category={{ product.category.name }}" class="text-dark">category</a>
+                </p>
+            </div>
+        {% endif %} 
+
 {% endblock %}
 
 {% block postloadjs %}
