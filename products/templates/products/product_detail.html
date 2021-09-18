@@ -35,8 +35,14 @@
                 <div class="col-12 col-lg-6 pt-3">
                     <p class="fs-6 card-text text-uppercase fw-bold">{{ product.name }}
                     {% if request.user.is_authenticated %}
+                        {% if on_wishlist %}
+                            <p>
+                                <a href="{% url 'remove_from_wishlist' product.id %}" class="text-danger">Remove from wishlist</a>
+                            </p>
+                        {% else %}
                         <a href="{% url 'add_to_wishlist' product.id %}" class="text-dark px-2"><i
                                 class="lar la-2x la-heart"></i></a>
+                        {% endif %}
                     </p>
                     {% endif %}
                     <div>

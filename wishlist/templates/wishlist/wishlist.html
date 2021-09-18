@@ -6,10 +6,41 @@
 
 {% block content %}
     <div id="products-main"></div>
-
-        {% for product in wishlist_products %}
-           TEST {{ product.name }}
-        {% endfor %}
-
+    <div class="container-fluid" id="products-main-container">
+        <div class="container">
+            {% if wishlist_products %}
+                <h5 class="text-uppercase fw-bold">Wishlist</h5>
+                {% for product in wishlist_products %}
+                    <div class="row my-5">
+                        <div class="col-lg-4 col-12 mb-3">
+                            <a href="{% url 'product_detail' product.id %}">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}" class="img-fluid">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-12 mb-3">
+                            <p class="fs-6 card-text text-uppercase fw-bold">{{ product.name }}<span
+                                class="px-3">${{ product.price }}</span></p>
+                            <p>{{ product.description }}</p>
+                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="text-dark">#{{ product.category }}</a>
+                            <p>
+                                <a href="{% url 'remove_from_wishlist' product.id %}" class="text-danger">Remove from wishlist</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="my-5">
+                    <h5>Oh no, it seems that you haven't added any products to your wishlist yet!</h5>
+                    <div class="pb-4 pt-2"><a href="{% url 'products' %}" class="btn btn-lg btn-dark text-uppercase hvr-skew-backward">
+                        <i class="las la-angle-left"></i>Back to shopping </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock %}
