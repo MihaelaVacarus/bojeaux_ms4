@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_title %}Wishlist{% endblock %}
+
+{% block content %}
+    <div id="products-main"></div>
+
+        {% for product in wishlist_products %}
+           TEST {{ product.name }}
+        {% endfor %}
+
+
+{% endblock %}

@@ -35,11 +35,13 @@
                     {% endif %}
                 </div>
             </li>
-            <li class="list-inline-item">
-                <a href="#" class="nav-link text-dark">
-                    <i class="lar la-2x la-heart"></i>
-                </a>
-            </li>
+            {% if request.user.is_authenticated %}
+                <li class="list-inline-item">
+                    <a href="{% url 'wishlist' %}" class="nav-link text-dark">
+                        <i class="lar la-2x la-heart"></i>
+                    </a>
+                </li>
+            {% endif %}
             <li class="list-inline-item">
                 <a href="{% url 'view_bag' %}" class="nav-link text-dark">
                     <i class="las la-2x la-shopping-bag"></i>

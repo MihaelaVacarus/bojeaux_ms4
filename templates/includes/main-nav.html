@@ -23,6 +23,11 @@
             <li class="nav-item px-lg-5">
                 <a class="nav-link text-uppercase text-dark" href="#">Blog</a>
             </li>
+            {% if request.user.is_authenticated %}
+                <li class="nav-item px-lg-5">
+                    <a class="nav-link text-uppercase text-dark" href="{% url 'wishlist' %}">Wishlist</a>
+                </li>
+            {% endif %}
             <li class="d-lg-none">
                 <ul class="navbar-nav">
                     {% if request.user.is_authenticated %}
