@@ -13,7 +13,7 @@
                 {% for post in posts %}
                     <div class="col-lg-4 col-12">
                         <div class="card text-center">
-                            <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" alt="bundle of three hair products">
+                            <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" alt="{{ blog.title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ post.title }}</h5>
                                 <p class="card-text">{{ post.content|truncatechars:200 }}</p>
