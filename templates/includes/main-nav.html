@@ -6,12 +6,17 @@
     <a href="{% url 'home' %}" class="nav-link d-lg-none d-md-flex">
         <h2 class="text-black text-uppercase">Bojeaux</h2>
     </a>
-    <a href="{% url 'view_bag' %}" class="nav-link text-dark d-lg-none d-xl-none">
-        <i class="las la-2x la-shopping-bag"></i>
-        {% if product_count > 0 %}
-            ({{ product_count }})
+    <div class="d-flex flex-row">
+        {% if request.user.is_authenticated %}
+            <a class="nav-link text-dark d-lg-none d-xl-none px-0" href="{% url 'wishlist' %}"><i class="lar la-2x la-heart"></i></a>
         {% endif %}
-    </a>
+        <a href="{% url 'view_bag' %}" class="nav-link text-dark d-lg-none d-xl-none">
+            <i class="las la-2x la-shopping-bag"></i>
+            {% if product_count > 0 %}
+                ({{ product_count }})
+            {% endif %}
+        </a>
+    </div>
     <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mx-lg-auto">
             <li class="nav-item px-lg-5">
@@ -23,11 +28,6 @@
             <li class="nav-item px-lg-5">
                 <a class="nav-link text-uppercase text-dark" href="{% url 'blog' %}">Blog</a>
             </li>
-            {% if request.user.is_authenticated %}
-                <li class="nav-item px-lg-5">
-                    <a class="nav-link text-uppercase text-dark" href="{% url 'wishlist' %}">Wishlist</a>
-                </li>
-            {% endif %}
             <li class="d-lg-none">
                 <ul class="navbar-nav">
                     {% if request.user.is_authenticated %}
