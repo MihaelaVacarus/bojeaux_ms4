@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}FAQ{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="faq-container">
+        <div class="accordion accordion-flush" id="faqAccordion">
+            <h1 class="text-uppercase fw-bold mt-5 mb-4 ps-1 fs-6">Frequently Asked Questions</h1>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What are your shipping methods and policies?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>We ship your order anywhere in the world within 3 days.</strong>
+                        Bojeaux orders are shipped and delivered by UPS on business days (Monday through Friday,
+                        excluding
+                        major holidays).
+                        Time frames could take between 4-10 business days and shipping costs are calculated based on
+                        your
+                        order total (if you spend a minimum of $45, you get free delivery!).
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What is your return policy?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Returns can be sent up to 90 days after receiving your order.</strong>
+                        However, please note that our products can only be returned if sealed and unopened,
+                        due to hygiene. Please return your products in the original shipping box to and use the sticker
+                        provided in the package you receive from us.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How can I contact you if I have any problems with my order?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>We are available Mon to Fri on our social media channels.</strong>
+                        For any questions regarding your order, you can contact us on Instagram,
+                        Facebook or Twitter and our customer service team will get back to you as soon as possible.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                        How long can I use the products for?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Generally, all cosmetic products have a shelf life of at least 2 years, if the packaging
+                            is sealed.</strong>
+                        On the packaging of your specific product, you can find an icon (a number with the letter 'M')
+                        that indicates how many
+                        months the quality can be guaranteed after opening. In case this icon is not visible on your
+                        product, then you can store
+                        it for at least two years in a cool, dry, and dark environment.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                        Do you provide skincare/haircare advice?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Our experts are ready to answer your questions and help you find the best products for
+                            you.</strong>
+                        Reach out to us on social media and we will guide you to find the best matches for you.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                        What should I do if I have an allergic reaction?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>First of all, please contact a doctor immediately for advice on any allergic
+                            reactions.</strong>
+                        Even though our products have been carefully tested, it could happen that your skin may react
+                        unexpectedly to one of our ingredients.
+                        In those cases, we advise you to stop using the product and give us all the product information
+                        (keep it!), so we can further investigate.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+                        Do you also sell the products in stores?
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Currently, our products are only available online.</strong>
+                        We are working hard to make our products available in stores as well, so make sure to follow us
+                        for any updates on that!
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+                        How can I buy gift cards on the online store?
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Unfortunately, at the moment, this is not possible yet.</strong>
+                        We are working on this and customizing some amazing gift cards that will soon be available for
+                        purchase, keep an eye out for 'em!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="my-5">
+            <p class="fst-italic">
+                We work hard to support you with your orders and answer all of your questions timely. 
+                Feel free to reach out to us through our social media channels down below anytime. 
+                <i class="lar la-hand-point-down"></i>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

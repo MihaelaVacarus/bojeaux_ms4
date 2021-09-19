@@ -115,6 +115,11 @@ label[for="id_login"],
     height: 600px;
 }
 
+/* --------------------------------------------- FAQ */
+#faq-container {
+    margin-top: 100px;
+}
+
 /* --------------------------------------------- Privacy Policy */
 #ui-list {
     list-style: none;
