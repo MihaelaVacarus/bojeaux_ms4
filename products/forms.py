@@ -19,4 +19,5 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
+            self.fields[field_name].widget.attrs['placeholder'] = field.label
             field.widget.attrs['class'] = 'border-black'
