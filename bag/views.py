@@ -20,13 +20,17 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(
-            request, f'Updated {product.name} quantity to {bag[item_id]}')
+        if bag[item_id] + quantity <= 10:
+            bag[item_id] += quantity
+            messages.success(
+                request, f'Updated {product.name} quantity to {bag[item_id]}')
+        else:
+            messages.error(request, "You can't add more than 10 of the same product!")
     else:
-        bag[item_id] = quantity
-        messages.success(
-            request, f'Added {product.name} to your bag')
+        if quantity <= 10:
+            bag[item_id] = quantity
+        else:
+            messages.error(request, "A limit of 10 applies!")
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -39,10 +43,11 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(
-            request, f'Updated {product.name} quantity to {bag[item_id]}')
+    if item_id in list(bag.keys()):
+        if bag[item_id] <= 10 and quantity <= 10:
+            bag[item_id] = quantity
+            messages.success(
+                request, f'Updated {product.name} quantity to {bag[item_id]}')
     else:
         bag.pop(item_id)
         messages.success(
