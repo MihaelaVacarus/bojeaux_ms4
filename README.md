@@ -316,4 +316,23 @@ ALLOWED_HOSTS = ['your-app-url', 'localhost']
 
 ## Credits ##
 
+- Design inspiration from the following websites: [ASOS](https://www.asos.com), [Rituals](https://www.rituals.com), [Dior](https://www.dior.com/) and [Byredo](https://www.byredo.com).
+- Images sourced from [Pexels](https://www.pexels.com/). 
+    - [AmIResponsive](http://ami.responsivedesign.is/) used for the website screenshot in the readme file.
+- Content mainly written by myself except for: 
+    - FAQ content inspiration from Rituals and Byredo FAQ pages.
+    - For blog post "The next big thing in wellness", the content is sourced from this Wikipedia [article](https://en.wikipedia.org/wiki/Yin_Yoga).
+    - For blog post "Skincare: expectation vs. reality", the content has been adapted from this [article](https://www.baene.in/blogs/blog/skincare-expectations-vs-reality)
+- Code:
+    - [Code Institute](https://codeinstitute.net/) course material, particularly the Boutique Ado mini project, from which I have reused code for several functionalities.
+    - [Bootstrap](https://getbootstrap.com/) code snippets adapted for many templates throughout the site.
+    - Explanation on how to build a blog application with Django from [DjangoCentral](https://djangocentral.com/building-a-blog-application-with-django/).
+    - Code explanation on how to create a countdown in JS, from [W3Schools](https://www.w3schools.com/howto/howto_js_countdown.asp).
+    - [Very Academy](https://www.youtube.com/watch?v=OgA0TTKAtqQ) video on YouTube explaining the concepts behind building a wishlist.
+    - [Django documentation](https://docs.djangoproject.com/en/3.2/) for deeper understanding on how models, views and urls come together to build apps. 
+    - [Stripe documentation](https://stripe.com/docs) for better understanding on how webhooks and test payments work.
+- Acknowledgements
+    - Special thanks to Jo, Scott, John and Igor for helping troubleshoot last minute issues with my project.
+    - Spencer Barribal, my mentor at Code Institute, thanks for his guidance on this project.
+
 [Back to contents](#contents)
