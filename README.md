@@ -149,7 +149,7 @@ According to La Reserve Magazine's [article](https://www.lareserve-mag.com/the-c
 [Back to contents](#contents)
 
 ## Features ##
-Bojeaux is a site made up of seven Django applications, some of which are reused throughout the overall architecture. 
+Bojeaux is a site made up of eight (including the Bojeaux app itself) Django applications, some of which are reused throughout the overall architecture. 
 
 - Home
 - Products
@@ -160,18 +160,20 @@ Bojeaux is a site made up of seven Django applications, some of which are reused
 - Wishlist
 
 ### **Implemented** ###
-- Responsive frontend design with Bootstrap.
+- Responsive frontend design with Bootstrap including intuitive navigation architecture.
 - Django all-auth (sign up, sign in, log out, password change).
 - User profiles which allow for storing order history, (updating) shipping information and products added to the wishlist.
+- Frontend UI for superuser to perform CRUD operations on the products, aside from the Django admin UI.
 - User feedback (toasts) for interacting on the website (add/delete items from bag, logging in/out, updating the bag, finishing a payment).
 - Automatic emails for user verification, password reset and order confirmation.
 - Product filtering by category and sorting. 
 - Bestsellers and similar products galleries.
+- Black Friday countdown.
 - Bag content and total amount.
 - Payments via Stripe.
 - Breadcrumbs to allow for easier site navigation.
-- Blog app with curated content directly related to the products sold on the website.
-- Wishlist that allows users to save favourite products to their profile.
+- Blog app with curated content.
+- Wishlist that allows logged in users to save favourite products to a wishlist.
 
 ### **To Implement** ###
 
