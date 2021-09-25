@@ -229,6 +229,7 @@ Bojeaux is a site made up of eight (including the Bojeaux app itself) Django app
 [Back to contents](#contents)
 
 ## Testing ##
+All testing for the website has been collected [here](https://github.com/MihaelaVacarus/bojeaux_ms4/blob/main/TESTING.md).
 
 [Back to contents](#contents)
 
