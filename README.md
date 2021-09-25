@@ -1,6 +1,6 @@
 # BOJEAUX
-![WebsiteSnapshot]()
-View the live project [here]().
+![WebsiteSnapshot](media/website-screenshot.png)
+View the live project [here](https://bojeaux-ms4.herokuapp.com/).
 
 Bojeaux is a fictitious luxury beauty brand focused on hair, face and body products. Designed as my final project for Code Institute’s program, the main goal is to present a fully functional e-commerce site using Django and Stripe payments integration.
 
@@ -60,6 +60,8 @@ The wireframes for the website have been created with [Figma](https://www.figma.
 #### **Data models and schemas** ####
 
 Fixtures JSON files have been created and used to easily upload the products information into the database.
+
+
 
 #### **Fonts** ####
 Noto Sans KR font with a Sans Serif fallback has been chosen for the entire website.
