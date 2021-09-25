@@ -19,6 +19,9 @@ Bojeaux is a fictitious luxury beauty brand focused on hair, face and body produ
     - [Implemented](#implemented)
     - [To Implement](#to-implement)
 - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks,Libraries and Programs](#frameworks-libraries-and-programs)
+    - [General Resources](#general-resources)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -178,11 +181,50 @@ Bojeaux is a site made up of eight (including the Bojeaux app itself) Django app
 ### **To Implement** ###
 
 - Implement pagination that allows for displaying the products across multiple pages.
-- Handdling account deletion/data requests.
+- Handling account deletion/data requests.
 
 [Back to contents](#contents)
 
 ## Technologies Used ##
+
+### **Languages** ###
+- [Python](https://www.python.org/)
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+### **Frameworks, Libraries and Programs** ###
+- [Bootstrap](https://getbootstrap.com/) - used to design some elements on the pages as well as help with styling and responsiveness.
+- [Figma](https://www.figma.com/) - used to create the wireframes.
+- [Google Fonts](https://fonts.google.com/)
+- [Coolors](https://coolors.co/) - used to generate the colors palette used throughout the website.
+- [Favicon.io](https://favicon.io/) - used to generate the favicon.
+- [Line Awesome](https://icons8.com/line-awesome) - used for the icons.
+- [cdnjs](https://cdnjs.com/)
+- [Hover.css](https://ianlunn.github.io/Hover/) - used for hoverable effects throughout the site.
+- [Git](https://git-scm.com/) - used for version control.
+- [GitHub](https://github.com/) - used to store the project's code.
+- [Gitpod](https://www.gitpod.io/)
+- [SQLite](https://www.sqlite.org/) - relational database used during development.
+- [PostgreSQL](https://www.postgresql.org/) - relational database used for deployed site.
+- [jQuery](https://jquery.com/)
+- [Django](https://www.djangoproject.com/) - used to build the site.
+- [Heroku](https://www.heroku.com/) - used to host the deployed site.
+- [Stripe](https://stripe.com/nl) - used for the payments functionality.
+- [AWS S3](https://aws.amazon.com/s3/) - used for storage of static and media files on the deployed site.
+- [RandomKeygen](https://randomkeygen.com/) - used to generate passwords across the site.
+- [Termly](https://termly.io/) - templates reused for the terms of use and privacy policy.
+- [Autoprefixer](https://autoprefixer.github.io/)- used for adding CSS vendor prefixes to increase compatibility across browsers.
+- [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+
+### **General Resources** ###
+
+1. [Code Institute Course Content](https://learn.codeinstitute.net/dashboard)
+2. Code Institute **Slack Community**
+3. [Django documentation](https://docs.djangoproject.com/en/3.2/)
+4. [Python Documentation](https://www.python.org/doc/)
+5. [W3Schools](https://www.w3schools.com/)
+6. [Stack Overflow](https://stackoverflow.com/)
 
 [Back to contents](#contents)
 
