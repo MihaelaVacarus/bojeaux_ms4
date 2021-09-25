@@ -12,7 +12,7 @@ Bojeaux is a fictitious luxury beauty brand focused on hair, face and body produ
     - [User Stories](#user-stories)
     - [Design](#design)
         - [Wireframes](#wireframes)
-        - [Data models and schemas](#data-models-and-schemas)
+        - [Information Architecture](#information-architecture)
         - [Fonts](#fonts)
         - [Colors and branding](#colors-and-branding)
 - [Features](#features)
@@ -57,12 +57,87 @@ Bojeaux is a fictitious luxury beauty brand focused on hair, face and body produ
 #### **Wireframes** ####
 The wireframes for the website have been created with [Figma](https://www.figma.com/) and are available [here](https://www.figma.com/file/TxA1czx6sYCXVmdOcjD8g2/MS4?node-id=0%3A1).Tablet and mobile devices share the same layout, while a separate design has been created for the desktop views. 
 
-#### **Data models and schemas** ####
+#### **Information Architecture** ####
 
 Fixtures JSON files have been created and used to easily upload the products information into the database.
+I have used SQLite for the development process and PostgreSQL for the deployed site. Static and media files are hosted in a AWS S3 bucket.
+The project consists of eight Django apps:
 
-
-
+- Bojeaux
+- Home - displays home, about, ToU, privacy policy and FAQ pages
+- Bag - displays the bag views and handles CRUD operations
+- Products
+    - Product Model - stores information on each product
+    ```
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=254)
+    description = models.TextField(max_length=1000)
+    ingredients = models.TextField(max_length=500)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    image = models.ImageField(null=True, blank=True)
+    ```
+    - Category Model - stores the product categories
+    ```
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    ```
+- Checkout 
+    - Order Model - stores information on the order
+    ```
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    ```
+    - OrderLineItem - stores information on products in an order
+    ```
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    ```
+- Blog 
+    - Blog Model - stores information on each blog post
+    ```
+    title = models.CharField(max_length=150, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.CharField(max_length=40, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    ```
+- Profiles 
+    - UserProfile Model - stores information on each user profile
+    ```
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
+    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_county = models.CharField(max_length=80, null=True, blank=True)
+    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    default_country = CountryField(blank_label='Country', null=True, blank=True)
+    ```
+- Wishlist - stores information on user's wishlist
+    - Wishlist Model
+    ```
+    user_profile = models.ForeignKey('profiles.UserProfile', on_delete=models.CASCADE, null=False, blank=False, related_name='wishlist')
+    products = models.ManyToManyField('products.Product')
+    ```
 #### **Fonts** ####
 Noto Sans KR font with a Sans Serif fallback has been chosen for the entire website.
 
