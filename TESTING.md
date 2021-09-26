@@ -33,3 +33,7 @@ Run on CSS code and no errors returned, just a few warnings that relate to brows
 
 ### [Flake8](https://flake8.pycqa.org/en/latest/index.html)
 Run the Python code validator and fixed most issues. The unfixed ones I researched and learned it's fine to leave as they are.
+
+### [JSHint](https://jshint.com/)
+Run the JSHint validator and fixed all errors.
+
