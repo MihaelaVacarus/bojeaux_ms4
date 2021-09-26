@@ -29,6 +29,9 @@ def add_to_bag(request, item_id):
     else:
         if quantity <= 10:
             bag[item_id] = quantity
+            messages.success(
+                request, f'Added {product.name} to your bag'
+            )
         else:
             messages.error(request, "A limit of 10 applies!")
 
