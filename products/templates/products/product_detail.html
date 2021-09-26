@@ -10,7 +10,7 @@
             <div class="row mb-3">
                 <!--Breadcrumbs-->
                 <div class="col-sm-6 col-12">
-                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';">
                         <a href="{% url 'home' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
                         <a href="{% url 'products' %}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">Shop</a>
                         <a href="{% url 'products' %}?category={{ product.category }}" class="breadcrumb-item text-dark text-uppercase text-decoration-none">{{ product.category }}</a>
@@ -65,7 +65,7 @@
                                                 id="id_qty_{{ product.id }}">
                                 <div>
                                     <button class="incr-btn btn border-none" data-item_id="{{ product.id }}" id="incr-btn_{{ product.id }}">
-                                        <span><i class="las la-plus"></i></i></span>
+                                        <span><i class="las la-plus"></i></span>
                                     </button>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                 </p>
             </div>
         {% endif %} 
-
+    </div>
 {% endblock %}
 
 {% block postloadjs %}

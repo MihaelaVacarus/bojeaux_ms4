@@ -11,7 +11,7 @@
             <div class="row mb-3">
                 <!--Breadcrumbs-->
                 <div class="col-sm-6 col-12">
-                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+                    <div class="breadcrumb" style="--bs-breadcrumb-divider: '|';">
                         <a href="{% url 'home' %}"
                             class="breadcrumb-item text-dark text-uppercase text-decoration-none">Home</a>
                         <a href="{% url 'products' %}"
@@ -104,7 +104,7 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
