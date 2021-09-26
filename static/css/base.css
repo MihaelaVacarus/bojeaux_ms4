@@ -76,6 +76,10 @@ main {
             text-decoration: 2px underline;
 }
 
+.custom-error-padding {
+    padding-top: 100px;
+}
+
 /* --------------------------------------------- Allauth templates */
 #allauth-form > div:nth-child(4) {
     border: 0px;
