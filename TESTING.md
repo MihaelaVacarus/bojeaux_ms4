@@ -37,3 +37,23 @@ Run the Python code validator and fixed most issues. The unfixed ones I research
 ### [JSHint](https://jshint.com/)
 Run the JSHint validator and fixed all errors.
 
+### [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse)
+- For Mobile the scores are: 
+    - Performance: 71
+    - Accessibility: 95
+    - Best Practices: 87
+    - SEO: 83
+- For Desktop the scores are:
+    - Performance: 97
+    - Accessibility: 79
+    - Best Practices: 87
+    - SEO: 80
+
+### [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb?hl=en)
+- I ran the extension on each page of the website and responsiveness checks OK. 
+
+### [Mobile Friendly Test Google Search Console](https://search.google.com/test/mobile-friendly)
+- The result is that the page is mobile friendly.
+
+### [WEB accessibility by Level Access](https://www.webaccessibility.com/)
+- The compliance result score is 94%.
