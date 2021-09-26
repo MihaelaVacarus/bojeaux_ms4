@@ -1,8 +1,16 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /* --------------------------------------------- Global styles */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 :root {
@@ -34,7 +42,9 @@ main {
 
 .form-control {
     border: 0px !important;
-    appearance: auto;
+    -webkit-appearance: auto;
+       -moz-appearance: auto;
+            appearance: auto;
 }
 
 #navigation-section {
@@ -62,7 +72,8 @@ main {
 }
 
 #main-nav .nav-link:hover {
-    text-decoration: 2px underline;
+    -webkit-text-decoration: 2px underline;
+            text-decoration: 2px underline;
 }
 
 /* --------------------------------------------- Allauth templates */
@@ -151,7 +162,9 @@ footer {
 
 #footer-content {
     top: 75px;
-    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+        -ms-transform:translateY(-50%);
+            transform:translateY(-50%);
     position: relative;
 }
 
@@ -219,26 +232,49 @@ label[for="id_login"],
 
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: 3rem;
   padding: 10px 10px;
   border: 1px solid transparent;
   font-size: 1rem;
   border-radius: 0px;
   background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+          box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: -webkit-box-shadow 150ms ease;
+  transition: -webkit-box-shadow 150ms ease;
+  -o-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+          box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
+}
+  
+.stripe-style-input::-webkit-input-placeholder {
+    color: #aab7c4;
+}
+  
+.stripe-style-input::-moz-placeholder {
+    color: #aab7c4;
+}
+  
+.stripe-style-input:-ms-input-placeholder {
+    color: #aab7c4;
+}
+  
+.stripe-style-input::-ms-input-placeholder {
+    color: #aab7c4;
 }
   
 .stripe-style-input::placeholder {
@@ -257,9 +293,15 @@ label[for="id_login"],
 }
 
 .loading-spinner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 0;
     height: 100%;
 }
@@ -277,6 +319,22 @@ select option[value=""] {
 /* --------------------------------------------- Profile information form */
 #profile-update-form .form-control {
     color: var(--color-black);
+}
+
+#profile-update-form input::-webkit-input-placeholder {
+    color: #aab7c4 !important;
+}
+
+#profile-update-form input::-moz-placeholder {
+    color: #aab7c4 !important;
+}
+
+#profile-update-form input:-ms-input-placeholder {
+    color: #aab7c4 !important;
+}
+
+#profile-update-form input::-ms-input-placeholder {
+    color: #aab7c4 !important;
 }
 
 #profile-update-form input::placeholder {
@@ -346,7 +404,9 @@ select option[value=""] {
 
     #footer-content {
         top: 0;
-        transform: none;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
     }
 
     #footer-content > div.col-lg-4.col-sm-12 > h1,
@@ -359,6 +419,8 @@ select option[value=""] {
     }
 
     #navigation-section {
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
     }
 
