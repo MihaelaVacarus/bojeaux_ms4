@@ -30,7 +30,8 @@ def add_to_wishlist(request, product_id):
 
     if product in wishlist.products.all():
         messages.info(
-            request, f'You have already added {product.name} to your wishlist!')
+            request,
+            f'You have already added {product.name} to your wishlist!')
         return redirect(request.META.get('HTTP_REFERER'))
     else:
         wishlist.products.add(product)
@@ -54,4 +55,3 @@ def remove_from_wishlist(request, product_id):
     else:
         messages.error(request, f'{product.name} is not on your wishlist!')
         return redirect(request.META.get('HTTP_REFERER'))
-

@@ -25,7 +25,8 @@ def add_to_bag(request, item_id):
             messages.success(
                 request, f'Updated {product.name} quantity to {bag[item_id]}')
         else:
-            messages.error(request, "You can't add more than 10 of the same product!")
+            messages.error(
+                request, "You can't add more than 10 of the same product!")
     else:
         if quantity <= 10:
             bag[item_id] = quantity
