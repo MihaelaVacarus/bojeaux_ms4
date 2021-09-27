@@ -173,14 +173,9 @@ footer {
 }
 
 /* --------------------------------------------- Products */
-.dropdown-sort {
-    border: 1px solid var(--color-black);
-}
-
 #dropdown-select {
     text-transform: uppercase;
-    border: none;
-    margin: 10px;
+    padding: 7px;
 }
 
 #products-main {
