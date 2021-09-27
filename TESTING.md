@@ -64,6 +64,7 @@ Run the JSHint validator and fixed all errors.
 ## Manual Testing ##
 
 ### Testing User Stories
+- This part of the testing can be found in a separate document [here](https://github.com/MihaelaVacarus/bojeaux_ms4/blob/main/static/testing-user-stories.pdf).
 
 ### Testing Functionalities
 - Navigation - OK
