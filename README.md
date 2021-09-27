@@ -45,8 +45,8 @@ Bojeaux is a fictitious luxury beauty brand focused on hair, face and body produ
 |        | get some sort of discount|afford to buy something extra maybe.|
 |        | see my past orders|track how much I spend and buy some products again.|
 |        | check the full list of ingredients|decide if the products are suitable for what I need.|
-|        | sort the products by price|see the expensive/chepeast ones first.|
-|        | get recommendation of similar products|discover new items that I could like.|
+|        | sort the products by price|see the expensive/cheapest ones first.|
+|        | get recommendations of similar products|discover new items that I could like.|
 |        | read the most frequently asked questions|know about returning policy, free shipping and anything related to the products on the site.|
 |        | have my shipping details on my profile|complete my purchase faster.|
 |        | read articles related to the products|learn how to better use them and be up to date with beauty tips.|
@@ -61,6 +61,7 @@ Bojeaux is a fictitious luxury beauty brand focused on hair, face and body produ
 
 #### **Wireframes** ####
 The wireframes for the website have been created with [Figma](https://www.figma.com/) and are available [here](https://www.figma.com/file/TxA1czx6sYCXVmdOcjD8g2/MS4?node-id=0%3A1).Tablet and mobile devices share the same layout, while a separate design has been created for the desktop views. 
+The design sketched in the original wireframes has very slightly changed in order to make the website more intuitive. Due to lack of time, I have decided not to detail all these small changes.
 
 #### **Information Architecture** ####
 
